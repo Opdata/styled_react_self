@@ -468,8 +468,11 @@ module.exports = function(webpackEnv) {
               }).concat({
                 loader: require.resolve("sass-loader"),
                 options: {
-                  includePaths: [paths.appSrc + "/styles"],
-                  sourceMap: isEnvProduction && shouldUseSourceMap
+                  sassOptions: {
+                    includePaths: [paths.appSrc + "/styles"],
+                    sourceMap: isEnvProduction && shouldUseSourceMap,
+                    data: `@import 'utils';`
+                  }
                 }
               }),
 
