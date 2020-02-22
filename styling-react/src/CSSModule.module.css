@@ -5,6 +5,12 @@
   font-size: 2rem;
 }
 
+.inverted {
+  color: black;
+  background: white;
+  border: 1px solid black;
+}
+
 /* 글로벌 css를 작성하고 싶다면 아래와 같이  */
 :global .something {
   font-weight: 800;
