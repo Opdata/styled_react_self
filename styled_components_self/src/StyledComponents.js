@@ -4,10 +4,21 @@ import React from "react";
 import styled, { css } from "styled-components";
 
 const Box = styled.div`
-  /* props 로 넣어 준 값을 직접 전달해 줄 수 있다. */
+  /* props로 넣어 준 값을 직접 전달해 줄 수 있다. */
   background: ${props => props.color || "blue"};
   padding: 1rem;
   display: flex;
+  /* 기본적으로는 가로 크기 1024px에 가운데 정렬을 하고
+  가로 크기가 작아짐에 따라 크기를 줄이고 768px 미만이 되면 꽉 채운다.
+  */
+  width: 1024px;
+  margin: 0 auto;
+  @media (max-width: 1024px) {
+    width: 768px;
+  }
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const Button = styled.button`
@@ -27,7 +38,7 @@ const Button = styled.button`
     background: rgba(255, 255, 255, 0.9);
   }
 
-  /* inverted 값이 true 일떄 스타일 부여 */
+  /* 다음 코드는 inverted 같이 true 일 떄 특정 스타일을 부여해 준다. */
   ${props =>
     props.inverted &&
     css`
@@ -39,6 +50,7 @@ const Button = styled.button`
         color: black;
       }
     `};
+
   & + button {
     margin-left: 1rem;
   }
